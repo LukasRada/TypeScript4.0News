@@ -7,6 +7,3 @@ type Name =
     | [first: string, middle: string, last: string]
 
 declare function createPerson(...name: Name): string;
-
-createPerson("Lukáš", "Rada");
-createPerson("Lukáš", "Test", "Rada");

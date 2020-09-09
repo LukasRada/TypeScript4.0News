@@ -32,6 +32,14 @@
 // nelze jednoduše?
 // declare function concat<T, U>(arr1: T[], arr2: U[]): Array<T | U>;
 
+// a co když chci omezit T a U?
+//type Arr = readonly unknown[];
+// function concat<T extends Arr, U extends Arr>(arr1: T, arr2: U): [...T, ...U] {
+//   return [...arr1, ...arr2];
+// }
+
+// concat(["","", false], [0, 0, false, new Date()])
+
 function tail<T extends unknown[]>(arr: readonly [unknown, ...T]) {
     const [, ...rest] = arr;
     return rest;
@@ -46,17 +54,9 @@ const r1 = tail(myTuple);
 const r2 = tail([...myTuple, ...myArray]);
 
 type Strings = [string, string];
-type Numbers = number[];
+type Numbers = [number, number]
 type Unbounded = [...Strings, ...Numbers, boolean];
 
-function a(...aaa: Unbounded) {
-    const [x, y, z, q] = aaa
+function f(...parameters: Unbounded) {
+    const [x, y, z, a, b] = parameters
 }
-
-type Arr = readonly unknown[];
-
-function concat<T extends Arr, U extends Arr>(arr1: T, arr2: U): [...T, ...U] {
-  return [...arr1, ...arr2];
-}
-
-concat(["","", false], [0, 0, false])
