@@ -7,7 +7,7 @@
     Variadic tuple - n-tice s nedefinovaným počtem prvků
 */
 
-// bez typů
+// bez typů - plain JS
 // function concat(arr1, arr2) {
 //     return [...arr1, ...arr2];
 // }
@@ -55,8 +55,8 @@ const r2 = tail([...myTuple, ...myArray]);
 
 type Strings = [string, string];
 type Numbers = [number, number]
-type Unbounded = [...Strings, ...Numbers, boolean];
+type StringStringNumberNumberBoolean = [...Strings, ...Numbers, boolean];
 
-function f(...parameters: Unbounded) {
+function f(...parameters: StringStringNumberNumberBoolean) {
     const [x, y, z, a, b] = parameters
 }
